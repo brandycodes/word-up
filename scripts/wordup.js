@@ -92,7 +92,7 @@ function checkIfWordIsReal(word) {
             else {
                 var theAnswer = true;
             }
-
+            console.log(theAnswer);
             // DONE 15
             // Update the corresponding wordSubmission in the model
             // Loop through every word in wordSubmissions,
@@ -375,10 +375,14 @@ function wordScore(word) {
     // split the word into a list of letters
     var letters = word.split("");
 
-    // TODO 19
+    // DONE 19
     // Replace the empty list below.
     // Map the list of letters into a list of scores, one for each letter.
     var letterScores = [];
+    for (i = 0; i < letters.length; i++) { 
+        individualLetterScore = letterScore(letters[i])
+        letterScores.push(individualLetterScore)
+    }
 
     // return the total sum of the letter scores
     return letterScores.reduce(add, 0);
