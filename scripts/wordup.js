@@ -146,8 +146,8 @@ function render() {
 
     // Set the value of the textbox
     $("#textbox").val(model.currentAttempt)
-    //    .focus();
-    // TODO 3
+        .focus();
+    // DONE 3 (line above)
     // Give focus to the textbox.
 
 
@@ -240,11 +240,13 @@ $(document).ready(function() {
         render();
     });
 
-    // TODO 6
+    // DONE 6
     // Add another event handler with a callback function.
     // When the textbox content changes,
     // update the .currentAttempt property of the model and re-render
-
+    $("#textbox").on('input', function() {
+        model.currentAttempt = $("#textbox").val();
+    });
 
     // when the form is submitted
     $("#word-attempt-form").submit(function(evt) {
