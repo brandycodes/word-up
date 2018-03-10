@@ -226,14 +226,23 @@ function wordSubmissionChip(wordSubmission) {
     // if we know the status of this word (real word or not), then add a green score or red X
     if (wordSubmission.hasOwnProperty("isRealWord")) {
         var scoreChip = $("<span></span>").text("⟐");
-        // TODO 17
+        // DONE 17
         // give the scoreChip appropriate text content
-
-        // TODO 18
+        // DONE 18
         // give the scoreChip appropriate css classes
+        if (wordSubmission.isRealWord == true) {
+            var individualWordScore = wordScore(wordSubmission.word)
+            scoreChip.text(individualWordScore)
+            scoreChip.attr("class", "tag tag-primary tag-sm");
+        }
+        else {
+            scoreChip.text("X")
+            scoreChip.attr("class", "tag tag-danger tag-sm");
+        }
 
-        // TODO 16
+        // DONE 16
         // append scoreChip into wordChip
+        wordChip.append(scoreChip);
 
     }
 
