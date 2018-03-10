@@ -160,8 +160,9 @@ function render() {
         // show the disallowed letters underneath
         var redLetterChips = disallowedLetters.map(disallowedLetterChip);
 
-        // TODO 8
+        // DONE 8
         // append the red letter chips to the form
+        $("#word-attempt-form").append(redLetterChips);
 
     }
 
@@ -286,7 +287,7 @@ function isDisallowedLetter(letter) {
     // the .allowedLetters list in the model
     // check the index of the letter in model.allowedLetters
     let allowedIndex = model.allowedLetters.indexOf(letter)
-    //if it's disallowed/not on the list, it will be -1-->gigtrue
+    //if it's disallowed/not on the list, it will be -1-->true
     if (allowedIndex === -1) {
         return true;
     }
