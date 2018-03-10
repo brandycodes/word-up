@@ -71,25 +71,37 @@ function addNewWordSubmission(word) {
  */
 function checkIfWordIsReal(word) {
 
-    // make an AJAX call to the Pearson API
+    // make an AJAX call to the Pearson API-Longman Active Study Dictionary (code lasde)
     $.ajax({
-        // TODO 13 what should the url be?
-        url: "www.todo13.com",
+        // DONE 13 what should the url be?
+        url: "http://api.pearson.com/v2/dictionaries/lasde/entries?headword=" + word,
         success: function(response) {
             console.log("We received a response from Pearson!");
 
             // let's print the response to the console so we can take a looksie
             console.log(response);
 
-            // TODO 14
+            // DONE 14
             // Replace the 'true' below.
             // If the response contains any results, then the word is legitimate.
             // Otherwise, it is not.
-            var theAnswer = true;
 
-            // TODO 15
+            if (jQuery.isEmptyObject(response.results) == true) {
+                var theAnswer = false;
+            }
+            else {
+                var theAnswer = true;
+            }
+
+            // DONE 15
             // Update the corresponding wordSubmission in the model
-
+            // Loop through every word in wordSubmissions,
+            // and update word[i]'s .isRealWord to theAnswer above.
+            for (i = 0; i < model.wordSubmissions.length; i++) { 
+                if (model.wordSubmissions[i].word === word) {
+                    model.wordSubmissions[i].isRealWord = theAnswer;
+                }
+            }
 
             // re-render
             render();
