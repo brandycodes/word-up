@@ -129,7 +129,13 @@ function render() {
     // clear stuff
     $("#allowed-letters").empty();
     $("#word-submissions").empty();
-    // TODO 10
+    // turn textbox back on and remove red error styling
+    $("#textbox").attr("disabled", false)
+        .removeClass("bad-attempt");
+    //remove little disallowed letter tags
+    $(".disallowed-letter").remove();
+   
+    // DONE 10
     // Add a few things to the above code block (underneath "// clear stuff").
 
 
