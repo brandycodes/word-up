@@ -318,9 +318,15 @@ function disallowedLettersInWord(word) {
  * i.e. the word does not contain any disallowed letters
  */
 function containsOnlyAllowedLetters(word) {
-    // TODO 12
+    // DONE 12
     // Return the actual answer.
-    return true;
+    disallowedList = disallowedLettersInWord(word);
+    if (jQuery.isEmptyObject(disallowedList) === true) {
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 /**
