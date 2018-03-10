@@ -146,9 +146,10 @@ function render() {
     var letterChips = model.allowedLetters.map(letterChip)
     $("#allowed-letters").append(letterChips);
 
-    // TODO 11
+    // DONE 11
     // Render the word submissions
-
+    var submittedWordChips = model.wordSubmissions.map(wordSubmissionChip)
+    $("#word-submissions").append(submittedWordChips);
 
     // Set the value of the textbox
     $("#textbox").val(model.currentAttempt)
