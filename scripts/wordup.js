@@ -113,8 +113,9 @@ function render() {
     // update the score on the scoreboard
     $("#current-score").text(currentScore());
 
-    // TODO 2
-    // Update the curent time remaining on the scoreboard.
+    // DONE 2
+    // Update the current time remaining on the scoreboard.
+    $("#time-remaining").text(model.secondsRemaining);
 
 
     // if the game has not started yet, just hide the #game container and exit
@@ -144,7 +145,8 @@ function render() {
 
 
     // Set the value of the textbox
-    $("#textbox").val(model.currentAttempt);
+    $("#textbox").val(model.currentAttempt)
+    //    .focus();
     // TODO 3
     // Give focus to the textbox.
 
@@ -228,7 +230,7 @@ function disallowedLetterChip(letter) {
 }
 
 
-// ----------------- DOM EVENT HANDLERS -----------------
+// ----------------- DOM EVENT HANDLERS ----------------
 
 $(document).ready(function() {
     // when the new game button is clicked
