@@ -54,6 +54,14 @@ function addNewWordSubmission(word) {
     // TODO 21
     // replace the hardcoded 'false' with the real answer
     var alreadyUsed = false;
+    for (i = 0; i < model.wordSubmissions.length; i++) { 
+        if (model.wordSubmissions[i].word === word) {
+            alreadyUsed = true;
+        }
+        else {
+            alreadyUsed = false;
+        }
+    }
 
     // if the word is valid and hasn't already been used, add it
     if (containsOnlyAllowedLetters(word) && alreadyUsed == false) {
@@ -404,9 +412,10 @@ function currentScore() {
         }
     });
 
-    // TODO 20
+    // DONE 20
     // return the total sum of the word scores
-    return 0;
+
+    return wordScores.reduce(add, 0);
 }
 
 
